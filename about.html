@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>顏秉庭的個人網頁</title>
+</head>
+<body style="background-color: rgba(254, 194, 29, 0.694);">
+	<header style = "border-radius: 5px;border: solid black; display: grid; grid-template-columns: 6fr 6fr;">
+		<div >
+			<h1 style="font-size: xx-large;">顏秉庭</h1>
+			<h3>性別:男</h3>
+			<h3>年齡:20</h3>
+			<h3>就讀學校:靜宜大學</h3>
+			<h3>科系:資訊管理系</h3>
+			<h3></h3>
+			<h3></h3>
+				
+		</div>
+			<div style="">
+				<h1>應徵職位:</h1>
+				<h1>MIS工程師</h1>
+			</div>
+	</header>
+	<main style="display: grid; grid-template-columns: 2fr 2fr 2fr;">
+		<div style ="border-radius: 2px;border: solid black;padding: 10px; height: 470px;display: flex; justify-content: center; align-items: center;"id="firstToggle">
+			<h1 id="firstHide">工作內容</h1>
+			<div id="firstShow" style="display: none;">
+				<h3>1.熟悉Oracle SERVER資料庫語法 </h3>
+				<h3>2.具程式設計基礎HTML5 (HTML,CSS和JavaScript) </h3>
+				<h3>3.電腦硬體、醫療設備、網路架構維護</h3>
+				<h3>4.具備軟、硬體系統規劃能力</h3>
+				<h3>5.有醫療相關資訊工作經驗佳</h3>
+				<h3>6.能配合公司發展</h3>
+			</div>
+		</div>
+		<div style = "border-radius: 2px;border: solid black; padding: 10px; display: flex; justify-content: center; align-items: center;" id="secondToggle">
+			<h1 id="secondHide" >自傳</h1>
+			<h3 id="secondShow" style="display: none;">我從一年級必修課的程式設計課後，就對程式設計有很大的興趣和好奇心，因此二年級開始學習了網頁設計，學習了HTML、CSS、JavaScript，也在二年級修了一些網頁相關的課程，以奠定網頁設計的基礎能力，確保能與職場接軌。
+				大三，也會繼續修和框架、資料庫相關的課程，計畫在大四時能在企業實習，增加在同屆中的競爭力。
+			</h3>
+		</div>
+		<div style = "border-radius: 2px;border: solid black; padding: 2px; display: flex; justify-content: center; align-items: center;" id="thirdToggle" >
+			<h1 id="thirdHide" >詳細內容</h1>
+			<div style="display: none;" id="thirdShow" >
+				<h3>職務類別:資訊設備管制人員、系統工程師、MIS程式設計師</h3>
+				<h3>工作待遇:月薪40,000元以上 （固定或變動薪資因個人資歷或績效而異）</h3>
+				<h3>工作性質:全職</h3>
+				<h3>上班地點:台北市大安區敦化南路二段39號12樓之1 (距捷運信義安和站約410公尺)</h3>
+				<h3>管理責任:不需負擔管理責任</h3>
+				<h3>出差外派:無需出差外派</h3>
+				<h3>上班時段:日班</h3>
+				<h3>休假制度:依公司規定</h3>
+			</div>
+			<script>
+				document.addEventListener("DOMContentLoaded", function () {
+				function addToggleListener(toggleId, showId, hideId) {
+					var toggle = document.getElementById(toggleId);
+					var show = document.getElementById(showId);
+					var hide = document.getElementById(hideId);
+
+					toggle.addEventListener("mouseover", function () {
+						show.style.display = "block";
+						hide.style.display = "none";
+					});
+
+					toggle.addEventListener("mouseout", function () {
+						show.style.display = "none";
+						hide.style.display = "block";
+					});
+				}
+
+				addToggleListener("firstToggle", "firstShow", "firstHide");
+				addToggleListener("secondToggle", "secondShow", "secondHide");
+				addToggleListener("thirdToggle", "thirdShow", "thirdHide");
+			});
+			</script>
+		</div>
+	</main>
+		
+</body>
+</html>
