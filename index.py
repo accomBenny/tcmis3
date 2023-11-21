@@ -1,6 +1,7 @@
 from flask import Flask,render_template,request
 from datetime import datetime
-
+import requests 
+from bs4 import BeautifulSoup
 app = Flask(__name__)
 
 @app.route("/")
@@ -11,6 +12,7 @@ def index():
 	homepage += "<a href=/welcome?nick=tcyang>傳送使用者暱稱</a><br>"
 	homepage += "<a href=/about>秉庭簡介網頁</a><br>"
 	homepage += "<a href=/account>網頁輸入帳密</a><br>"
+	homepage += "<a href=/spider>爬蟲</a><br>"
 	return homepage
 
 @app.route("/mis")
@@ -41,6 +43,23 @@ def account():
 	else:
 		return render_template("account.html")
 
-#if __name__ == "__main__":
-#	app.run()
+
+
+@app.route("/spider")
+def spider():
+	url = "https://www1.pu.edu.tw/~tcyang/course.html"
+	Data = requests.get(url)
+	Data.encoding = "utf-8"
+
+	sp = BeautifulSoup(Data.text, "html.parser")
+	result=sp.select(".team-box")
+
+	info = ""
+	for item in result:
+		info+="<a href=" +item.find("a").get("href")+ ">"+item.text+"</a>><br></br>"
+		info += item.find("a").get("href")+"<br></br>"
+	return(info)
+
+if __name__ == "__main__":
+	app.run(debug=True)
 	
