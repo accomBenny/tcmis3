@@ -45,20 +45,7 @@ def account():
 
 
 
-@app.route("/spider")
-def spider():
-	url = "https://www1.pu.edu.tw/~tcyang/course.html"
-	Data = requests.get(url)
-	Data.encoding = "utf-8"
 
-	sp = BeautifulSoup(Data.text, "html.parser")
-	result=sp.select(".team-box")
-
-	info = ""
-	for item in result:
-		info+="<a href=" +item.find("a").get("href")+ ">"+item.text+"</a>><br></br>"
-		info += item.find("a").get("href")+"<br></br>"
-	return(info)
 
 if __name__ == "__main__":
 	app.run(debug=True)
